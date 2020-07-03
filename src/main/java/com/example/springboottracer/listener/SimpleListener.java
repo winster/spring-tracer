@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Slf4j
-public class AmqpListener {
+public class SimpleListener {
 
     @RabbitListener(id = "id1", queues = "ccbd_queue")
     public void receiveEvent(String message) {
-        log.info("received {}", message);
+        log.info("inside receiveEvent {}", message);
     }
 
 }
