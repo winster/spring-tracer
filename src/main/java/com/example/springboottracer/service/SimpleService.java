@@ -11,5 +11,10 @@ public class SimpleService {
     @Async
     public void doNothing(){
       log.info("inside doNothing");
+      foo();
+    }
+
+    private void foo() {
+        log.info("reached somewhere.. but where?");
     }
 }
