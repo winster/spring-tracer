@@ -36,3 +36,8 @@ For scheduled task, there is a trace generated without logs.
 ### Verdict
 * If you use Jaeger as the tracing backend, opentracing lib is easy to work with. As you can see the default configuration, it generally works as expected. By default it uses UDP.
 * Spring sleuth has taken zipkin as the backend though it is compatible with Open tracing APIs, but not all features are available with default configuration. Also note that it works over Jaeger's http endpoint for zipkin protocol. I have not explored zipkin much, hence I want to refrain from making any comment about it. 
+
+### A problem with opentracing lib
+
+If an AsyncConfigurer is implemented in the application and override only getAsyncUncaughtExceptionHandler but not getAsyncExecutor, application failed to start. Raised an issue https://github.com/opentracing-contrib/java-spring-jaeger/issues/99
+Work around is to override getAsyncExecutor.
