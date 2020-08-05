@@ -52,3 +52,7 @@ This dependency causes the logging to disappear from jaeger. On debugging follow
 * Thus `AppenderAttachableImpl::appenderList` is reset and only `ConsoleAppender` is appended later
 * Hence tracer does not get logs
 
+* Fix for above 
+
+* Append `SpanLogsAppender` again on ApplicationReadyEvent (and RefreshScopeRefreshedEvent if you use it)
+* Exclude `OpenTracingChannelInterceptorAutoConfiguration` which will not trace spring-cloud-bus actions (such as rabbitmq publish ad subscribe)

@@ -17,7 +17,7 @@ public class SimpleJob {
         this.simpleService = simpleService;
     }
 
-    @Scheduled(fixedRate = 30000L)
+    @Scheduled(fixedRate = 5000L)
     public void job1() {
         log.info("inside job1");
         simpleService.doNothing();
